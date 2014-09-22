@@ -1,38 +1,23 @@
 # format-stack
 
-<!--
-    [![build status][build-png]][build]
-    [![Coverage Status][cover-png]][cover]
-    [![Davis Dependency status][dep-png]][dep]
--->
-
-<!-- [![NPM][npm-png]][npm] -->
-
-<!-- [![browser support][test-png]][test] -->
-
 Formats a stack with colors
+
+This module must be required as the first thing before
+everything else. It will format your stack trace with
+colors and will also print the previous stack.
+
+Be warned this uses `trycatch` so it will enable domains
+and monkey patch everything to implement long stack
+traces.
 
 ## Example
 
 ```js
-var formatStack = require("format-stack");
+require("format-stack");
 
-// TODO. Show example
+// Any thrown error will now have a pretty printed stack
+// trace.
 ```
-
-## Docs
-
-### `var someValue = formatStack(/*arguments*/)`
-
-<!--
-  This is a jsig notation of your interface.
-  https://github.com/Raynos/jsig
--->
-```ocaml
-format-stack := (arg: Any) => void
-```
-
-// TODO. State what the module does.
 
 ## Installation
 

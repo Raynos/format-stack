@@ -10,6 +10,8 @@ Be warned this uses `trycatch` so it will enable domains
 and monkey patch everything to implement long stack
 traces.
 
+![format-stack-example](http://i.imgur.com/PBF5YwC.jpg)
+
 ## Example
 
 ```js

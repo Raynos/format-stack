@@ -4,6 +4,15 @@ trycatch.configure({
     format: defaultFormatter
 });
 
+var _stackSize = 2;
+
+module.exports = {
+    setStackSize: function setStackSize(size) {
+        _stackSize = size;
+        return this;
+    }
+};
+
 var path = require('path');
 var nodeModules = path.sep + 'node_modules' + path.sep;
 var isTest = path.sep + 'test' + path.sep;
@@ -25,6 +34,7 @@ var colorMap = {
     'test': 'green',
     'default': 'red'
 };
+
 
 function defaultFormatter(line) {
     var type;
@@ -57,3 +67,15 @@ function defaultFormatter(line) {
 
     return line;
 }
+
+
+var oldPrepareStackTrace = Error.prepareStackTrace;
+
+function prepareStackTrace(err, frames) {
+    var stack = oldPrepareStackTrace.call(this, err, frames);
+
+    var stackFrames = stack.split(delimitter);
+
+    return stackFrames.slice(0, _stackSize).join(delimitter);
+}
+Error.prepareStackTrace = prepareStackTrace;

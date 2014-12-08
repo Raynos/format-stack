@@ -28,7 +28,7 @@ var colors;
         //jscs:enable
     }
 })();
-var colorMap = {
+var colorMap = module.exports = {
     'node': 'default',
     'node_modules': 'cyan',
     'test': 'green',

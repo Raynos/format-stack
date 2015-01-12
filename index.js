@@ -1,17 +1,21 @@
 var trycatch = require('trycatch');
+var minimist = require('minimist');
+var path = require('path');
+
 trycatch.configure({
     'long-stack-traces': true,
     format: defaultFormatter
 });
 
-var path = require('path');
 var nodeModules = path.sep + 'node_modules' + path.sep;
 var isTest = path.sep + 'test' + path.sep;
 var isTests = path.sep + 'tests' + path.sep;
 var delimitter = '    ----------------------------------------';
 var colors;
 (function doIt() {
-    if (process.stdout && process.stdout.isTTY) {
+    var argv = minimist(process.argv.slice(2));
+
+    if (argv.color || process.stdout && process.stdout.isTTY) {
         //jscs:disable
         try {
             colors = require('ansi-styles');

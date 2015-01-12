@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "ansi-styles": "^1.1.0",
+    "minimist": "^1.1.0",
     "trycatch": "^1.5.11"
   },
   "devDependencies": {

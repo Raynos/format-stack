@@ -1,6 +1,7 @@
 var trycatch = require('trycatch');
 var minimist = require('minimist');
 var path = require('path');
+var process = require('process');
 
 trycatch.configure({
     'long-stack-traces': true,

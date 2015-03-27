@@ -20,7 +20,7 @@
     "ansi-styles": "^1.1.0",
     "minimist": "^1.1.0",
     "process": "^0.10.0",
-    "trycatch": "^1.5.11"
+    "trycatch": "1.5.11"
   },
   "devDependencies": {
     "tape": "^2.12.3",

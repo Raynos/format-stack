@@ -15,7 +15,9 @@ traces.
 ## Example
 
 ```js
-require("format-stack");
+require("format-stack").set({
+  traces: 'short' // 'long' works too, maybe.. ;)
+});
 
 // Any thrown error will now have a pretty printed stack
 // trace.

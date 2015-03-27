@@ -8,10 +8,12 @@ var process = require('process');
 var nodeModules = path.sep + 'node_modules' + path.sep;
 var isTest = path.sep + 'test' + path.sep;
 var isTests = path.sep + 'tests' + path.sep;
+var isLib = path.sep + 'lib' + path.sep;
 var delimitter = '    ----------------------------------------';
 var colors;
 var colorMap = {
     'node': 'default',
+    'lib': 'blue',
     'node_modules': 'cyan',
     'test': 'green',
     'default': 'red'
@@ -41,7 +43,7 @@ function longTraces() {
 }
 
 function defaultFormatter(line) {
-    /*eslint max-depth: [2, 10]*/
+    /*eslint max-depth: [2, 10], complexity: [2, 15], max-statements: [2, 25] */
     var type;
     var color;
 
@@ -51,6 +53,8 @@ function defaultFormatter(line) {
         } else if (line.indexOf(isTest) >= 0 ||
                     line.indexOf(isTests) >= 0) {
             type = 'test';
+        } else if (line.indexOf(isLib) >= 0) {
+            type = 'lib';
         } else if (line.indexOf(path.sep) >= 0) {
             type = 'default';
         } else if (line === delimitter || line.substring(0, 5) === 'Error') {

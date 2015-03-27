@@ -1,7 +1,7 @@
 'use strict';
 
-var shortTraces = require('./shortTraces');
-var longTraces = require('./longTraces');
+var shortTraces = require('./short-traces');
+var longTraces = require('./long-traces');
 
 module.exports = {
     set: function set(opts) {
